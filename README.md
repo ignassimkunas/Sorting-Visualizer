@@ -12,6 +12,8 @@
 - Heap sort (comming)
 - Radix sort (comming)
 
+### Preview at -  https://ignassimkunas.github.io/Sorting-Visualizer/
+
 # Change log:
 
 ## v0.1
