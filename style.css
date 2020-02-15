@@ -1,0 +1,46 @@
+.container {
+	display: flex;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+@media (min-width: 768px){
+	.container {
+		width: 188px;
+	}
+}
+@media (min-width: 992px){
+	.container {
+		width: 320px;
+	}
+}
+@media (min-width: 1200px){
+	.container {
+		width: 500px;
+	}
+}
+
+.skills {
+  text-align: right; /* Right-align text */
+  padding-top: 10px; /* Add top padding */
+  padding-bottom: 10px; /* Add bottom padding */
+  color: white; /* White text color */
+}
+
+
+
+.moveUp {
+    width: 400px;
+    border: 1px solid black;
+    position: relative;
+}
+.moveUp div {
+    border: 1px solid black;
+    position: relative;
+}
+.moveUp a {
+    display: block;
+    height: 35px;
+    font-size: 20px;
+}
