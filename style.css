@@ -1,46 +1,79 @@
-.container {
-	display: flex;
-	padding-right: 15px;
-	padding-left: 15px;
-	margin-right: auto;
-	margin-left: auto;
+.bg-dark{
+	background: black;
 }
-@media (min-width: 768px){
-	.container {
-		width: 188px;
-	}
+html, body{
+	background: black;
+	color: white;
+	font-family: 'Solway', serif;	
 }
-@media (min-width: 992px){
-	.container {
-		width: 320px;
-	}
+h1{
+	margin: auto;
+	margin-left: 15%;
 }
-@media (min-width: 1200px){
-	.container {
-		width: 500px;
-	}
+button {
+	height: 100%;
+	background: black;
+	border: none;
+	border-radius: 12px;
+	font-size: 15px;
+	padding: 10px;
+	margin-right: 1%;
+	color: white;
+	cursor: pointer;
+	font-family: 'Solway', serif;	
 }
-
-.skills {
-  text-align: right; /* Right-align text */
-  padding-top: 10px; /* Add top padding */
-  padding-bottom: 10px; /* Add bottom padding */
-  color: white; /* White text color */
+button:hover{
+	background: white;
+	color: black;
+	transition: 0.4s;
 }
-
-
+#gen-new{
+	margin-right: 3%;
+}
 
 .moveUp {
-    width: 400px;
+	background: white;
+    width: 100%;
+    color: black;
     border: 1px solid black;
+    border-radius: 5px;
     position: relative;
+    margin: auto;
+    margin: 10px;
+    padding: 3px;
+    text-align: center;
+    font-family: 'Solway', serif;
 }
+select{
+	font-family: 'Solway', serif;
+	padding: 10px;
+	margin: 10px;
+	background: white;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;   
+    box-sizing: border-box; 
+	border: 1px solid grey;
+	border-radius: 5px;
+	width: 50%;
+}
+
 .moveUp div {
     border: 1px solid black;
     position: relative;
 }
 .moveUp a {
-    display: block;
-    height: 35px;
-    font-size: 20px;
+	display: block;
+    height: 25px;
+    font-size: 17px;
 }
+#element{
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	margin: auto;
+	margin-top: 5%;
+}
+.buttons{
+	margin: auto;
+}
+
