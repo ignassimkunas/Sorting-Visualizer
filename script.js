@@ -18,7 +18,6 @@ class Sorting {
         });
     }
     bubbleSort() {
-
         let newArrays = [], indices = [];
         var newArray = [...this.array];
         let len = newArray.length;
@@ -34,19 +33,44 @@ class Sorting {
                 }
             }
             newArrays.unshift(this.array);
-            for (let i = 0; i < newArrays.length - 1; i++){
-                indices.push([...this.findDifferentElement(newArrays[i], newArrays[i + 1])]);
-            }
-            var count = 0;
-            const loop = setInterval(()=>{
-                this.switchPlaces(indices[count][0], indices[count][1]);
-                count++;
-                if (!indices[count]){
-                    clearInterval(loop);
+            const findDifferentElement = (oldArray, newArray) =>{
+                for (let i = 0; i < newArray.length; i++){
+                    if (oldArray[i] != newArray[i]){
+                        return [i, i+1];
+                    } 
                 }
-            }, 300);
+            }
+            for (let i = 0; i < newArrays.length - 1; i++){
+                indices.push([...findDifferentElement(newArrays[i], newArrays[i + 1])]);
+            }
+            this.applyChanges(indices);
+            this.sorted = true;
         }
-        this.sorted = true;
+        else {alert("Already sorted");}
+    }
+    selectionSort(){
+        let newArrays = [], indices = [];
+        var newArray = [...this.array];
+        let len = newArray.length;
+        if (!this.sorted){
+            for (let i = 0; i < len; i++) {
+                let min = i;
+                for (let j = i + 1; j < len; j++) {
+                    if (newArray[min] > newArray[j]) {
+                        min = j;
+                    }
+                }
+                if (min !== i) {
+                    indices.push([min, i]);
+                    let tmp = newArray[i];
+                    newArray[i] = newArray[min];
+                    newArray[min] = tmp;
+                }
+            }
+            this.applyChanges(indices);
+            this.sorted = true;
+        }
+        else {alert("Already sorted");}
     }
     switchPlaces(index1, index2) {
         if (index1 > index2){
@@ -54,11 +78,10 @@ class Sorting {
             index2 = index1;
             index1 = temp;
         }
-
         const clickedDiv = $($('.moveUp')[index1]);
         const otherDiv = $($('.moveUp')[index2]);
         const distanceBetweenDivs = index2 - index1;
-        const distance = $(clickedDiv).outerHeight() * distanceBetweenDivs + 10;        
+        const distance = $(clickedDiv).outerHeight() * distanceBetweenDivs + 10;
 
         if (otherDiv.length) {
             this.animating = true;
@@ -80,17 +103,20 @@ class Sorting {
             });
         }   
     }
-    findDifferentElement(oldArray, newArray){
-        for (let i = 0; i < newArray.length; i++){
-            if (oldArray[i] != newArray[i]){
-                return [i, i+1];
-            } 
-        }
+    applyChanges(indices){
+        var count = 0;
+        const loop = setInterval(()=>{
+            this.switchPlaces(indices[count][0], indices[count][1]);
+            count++;
+            if (!indices[count]){
+                clearInterval(loop);
+            }
+        }, 300);
     }
 }
-
-//padaryt bar'us vienos spalvos, be skaičiaus viduj, o pagal ilgį.
-
+//TODO:
+//padaryt, kad reversint butu galima
+//matuot laika
 const sorting = new Sorting();
 sorting.setWidthByValue();
 
@@ -123,7 +149,7 @@ const start = () => {
             sorting.bubbleSort();
             break;
         case "Selection Sort":
-            alert("Not ready yet");
+            sorting.selectionSort();
             break;
         default:
             alert("Please choose an algorithm to visualize");

@@ -4,7 +4,7 @@
 ## Available algorithms:
 
 - Bubble sort
-- Selection sort (comming)
+- Selection sort
 - Insertion sort (comming)
 - Shell sort (comming)
 - Quick sort (comming)
@@ -18,3 +18,6 @@
 
 ## v0.1
 - Initial commit, almost no design, only bubble sort available.
+
+## v0.2
+- Added design, algorithm selection, fixed bugs, added selection sort.
